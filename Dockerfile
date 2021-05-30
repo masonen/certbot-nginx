@@ -29,7 +29,10 @@ RUN apk add --update \
   tk-dev \
   zlib-dev \
   python3 \
-  py3-virtualenv
+  py3-virtualenv \
+  nginx
+
+RUN rm -rf /etc/nginx
 
 RUN python3 -m venv /opt/certbot/ \
     && /opt/certbot/bin/pip install --upgrade pip

@@ -3,9 +3,18 @@
 Basic certbot image with nginx plugin. 
 This can be used on systems with a baremetal nginx already installed in order to us certbot from a docker container.
 
-This does NOT provide a nginx environment from within the container!
-## How to ues?
+This image installs nginx binary to be able to use the `certbot --nginx` functionality but is not built to run nginx by itself!
+## How to use?
 
+```
+sudo docker run \ 
+   -it \ 
+   --rm \
+   -v "/etc/letsencrypt:/etc/letsencrypt" \ 
+   -v "/var/lib/letsencrypt:/var/lib/letsencrypt" 
+   -v "/etc/nginx:/etc/nginx" \
+   masonen/certbot-nginx --nginx
+```
 
 ### Why?
 
